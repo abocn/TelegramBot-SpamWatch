@@ -11,7 +11,7 @@ const readBlocklist = () => {
     blocklist = data.split('\n').map(id => id.trim()).filter(id => id !== '');
   } catch (error) {
     if (error.code === 'ENOENT') {
-      console.log('WARN: SpamWatch blocklist file not found. Creating a new (blank) one.\nUse your API key to push the blocklist to the file.');
+      console.log('WARN: SpamWatch blocklist file not found. Creating a new, blank one.\nUse your own SpamWatch API key and our generator to push the blocklist to the file.');
       fs.writeFileSync(blocklistPath, '');
     } else {
       console.error('WARN: Error reading SpamWatch blocklist:', error);
