@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 const blocklistPath = path.join(__dirname, 'sw_blocklist.txt');
 
-let blocklist = [];
+let blocklist: string[] = [];
 
 const readBlocklist = () => {
   try {
@@ -19,10 +19,10 @@ const readBlocklist = () => {
   }
 };
 
-const isOnSpamWatch = (userId) => {
-  return blocklist.includes(String(userId));
+const isOnSpamWatch = (userId: string) => {
+  return blocklist.includes(userId);
 };
 
 readBlocklist();
 
-module.exports = { isOnSpamWatch };
+export { isOnSpamWatch };
