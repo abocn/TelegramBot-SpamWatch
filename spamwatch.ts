@@ -23,6 +23,10 @@ const isOnSpamWatch = (userId: string) => {
   return blocklist.includes(userId);
 };
 
+const isSpamwatchConnected = () => blocklist.length > 0;
+
+const getSpamwatchBlockedCount = () => blocklist.length;
+
 readBlocklist();
 
-export { isOnSpamWatch };
+export { isOnSpamWatch, isSpamwatchConnected, getSpamwatchBlockedCount };
